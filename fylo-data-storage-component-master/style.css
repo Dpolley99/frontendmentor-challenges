@@ -1,0 +1,199 @@
+.attribution { 
+  font-size: 11px; text-align: center; 
+  position: absolute; bottom: 0; left: 0; right: 0;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --light-blue: hsl(243, 100%, 93%);
+  --moderate-blue: hsl(228, 56%, 26%);
+  --dark-blue: hsl(229, 57%, 11%);
+  --grayish-blue: hsl(229, 7%, 55%);
+
+  --gradient1: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+
+  font-size: .9rem;
+}
+
+*,*::before,*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  background: url(./images/bg-mobile.png) no-repeat var(--dark-blue);
+  background-size: cover;
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+  color: var(--grayish-blue);
+  font-size: var(--font-size);
+  min-width: 375px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+strong {
+  color: white;
+}
+
+.big-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.small-number {
+  font-weight: 700;
+  color: var(--grayish-blue);
+}
+
+.left-box, .right-box {
+  padding: 2rem;
+  background: var(--moderate-blue);
+  border-radius: 0.8rem;
+}
+
+.left-box {
+  border-radius: 0.8rem 6rem 0.8rem 0.8rem;
+}
+
+.right-box {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.storage {
+  width: 90%;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: initial;
+}
+
+.icons {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  width: fit-content;
+  margin-top: 1.5rem;
+}
+
+.icons button{
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: var(--dark-blue);
+  place-items: center;
+  border-radius: 0.6rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1.25rem;
+  background: var(--dark-blue);
+  border-radius: 2rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.progress {
+  width: 81.5%;
+  height: 1rem;
+  background: var(--gradient1);
+  border-radius: 2rem;
+  translate: 2px 2px;
+  position: relative;
+}
+
+.progress::after {
+  position: absolute;
+  right: 1px;
+  top: 1.25px;
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+}
+
+.storage-index {
+  font-weight: 700;
+}
+
+.storage-left {
+  background: white;
+  position: absolute;
+  width: max-content;
+  padding: 0 1.5rem;
+  gap: 0.5rem;
+  border-radius: 0.8rem;
+  bottom: 0rem;
+  left: 50%;
+  translate: -50% 50%;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: url(./images/bg-desktop.png) no-repeat var(--dark-blue);
+    background-size: contain;
+    background-position: bottom;
+  }
+  
+
+  .storage {
+    width: 70%;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 2rem;
+    max-width: 60rem;
+  }
+
+  .left-box {
+    flex-basis: 40%;
+    padding-top: 3rem;
+  }
+
+  .right-box {
+    flex-basis: 60%;
+    padding-bottom: initial;
+    height: 150px;
+  }
+
+  .storage-left {
+    bottom: initial;
+    left: initial;
+    translate: initial;
+    right: 1.5rem;
+    top: -2rem;
+  }
+
+  .storage-left::after {
+    content: '';
+    border-left: 10px solid white;
+    border-top: 10px solid white;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    rotate: -45deg;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+  }
+}
