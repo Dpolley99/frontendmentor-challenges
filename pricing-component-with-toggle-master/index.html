@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor |Pricing Component with Toggle</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="component">
+    <h1>Our Pricing</h1>
+    <div class="toggle-container">
+      <p>Annualy</p>
+      <div class="toggle-switch">
+        <input type="checkbox" class="toggle-input" id="toggle" checked>
+        <label for="toggle" class="toggle-label"></label>
+      </div>
+      <p>Monthly</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Basic</h3>
+        <div class="cost">&dollar; <span id="basic-cost">19.99</span></div>
+        <ul class="benefits">
+          <li>500 GB Storage</li>
+          <li>2 Users Allowed</li>
+          <li>Send up to 3 GB</li>
+        </ul>
+        <a href="#" class="link-btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <h3>Professional</h3>
+        <div class="cost">&dollar; <span id="professional-cost">24.99</span></div>
+        <ul class="benefits">
+          <li>1 TB Storage</li>
+          <li>5 Users Allowed</li>
+          <li>Send up to 10 GB</li>
+        </ul>
+        <a href="#" class="link-btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <h3>Master</h3>
+        <div class="cost">&dollar; <span id="master-cost">39.99</span></div>
+        <ul class="benefits">
+          <li>2 TB Storage</li>
+          <li>10 Users Allowed</li>
+          <li>Send up to 20 GB</li>
+        </ul>
+        <a href="#" class="link-btn">Learn More</a>
+      </div>
+    </div>
+
+    <img src="images/bg-top.svg" alt="bg-top" class="top-img">
+    <img src="images/bg-bottom.svg" alt="bg-bottom" class="bottom-img">
+  </div>
+  
+
+  
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor.</a> Coded by <a href="#">Debarshi Polley</a>.
+    </p>
+  </div>
+
+  <script>
+    const checkToggle = document.getElementById('toggle')
+    const basicCost = document.getElementById('basic-cost')
+    const professionalCost = document.getElementById('professional-cost')
+    const masterCost = document.getElementById('master-cost')
+
+    checkToggle.addEventListener('change', () => {
+      if(checkToggle.checked) {
+        basicCost.textContent = `19.99`
+        professionalCost.textContent = `24.99`
+        masterCost.textContent = `39.99`
+      } else {
+        basicCost.textContent = `199.99`
+        professionalCost.textContent = `249.99`
+        masterCost.textContent = `399.99`
+      }
+    })
+  </script>
+</body>
+</html>

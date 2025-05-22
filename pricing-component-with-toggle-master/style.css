@@ -1,0 +1,226 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+:root {
+  /* Primary */
+  --linear-gradient: linear-gradient(120deg, hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+  --linear-gradient-start: hsl(236, 72%, 79%);
+  --linear-gradient-end: hsl(237, 63%, 64%);
+
+  /* Neutral */
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233,13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-switch .toggle-input {
+  visibility: hidden;
+}
+
+.toggle-switch .toggle-label {
+  position: absolute;
+  background: var(--linear-gradient);
+  cursor: pointer;
+  width: 48px;
+  height: 28px;
+  top: -3px;
+  left: -17px;
+  border-radius: 2rem;
+  transition: background-color 0.2s;
+}
+
+.toggle-switch .toggle-label::before {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  left: 3px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch .toggle-input:checked + .toggle-label::before {
+  transform: translateX(22px);
+}
+
+body {
+  background-color: var(--very-light-grayish-blue);
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+  place-content: center;
+}
+
+.component {
+  text-align: center;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  z-index: 0;
+}
+
+.top-img {
+  top: -200px;
+  right: -190px;
+}
+
+.bottom-img {
+  bottom: -145px;
+  left: -200px;
+}
+
+.component .toggle-container {
+  margin: 2rem auto;
+  max-width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.component .cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.component .cards-grid .card {
+  background-color: white;
+  padding: 1.5rem;
+  font-weight: 700;
+}
+
+.component .cards-grid .card:nth-child(2) {
+  background: var(--linear-gradient);
+  color: var(--very-light-grayish-blue);
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.component .cards-grid .card:nth-child(1),
+.component .cards-grid .card:nth-child(3) {
+  height: min-content;
+}
+
+.component .cards-grid .card h3 {
+  margin-bottom: 1rem;
+}
+
+.component .cards-grid .card .cost {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.component .cards-grid .card .cost span {
+  font-size: 3rem;
+}
+
+.component .cards-grid .card .benefits li {
+  padding: 1rem 3rem;
+  border-bottom: 1px solid hsl(236, 72%, 79%);
+}
+
+.component .cards-grid .card:nth-child(2) .cost {
+  min-width: 285px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--very-light-grayish-blue);
+}
+
+.component .cards-grid .card:nth-child(2) .benefits li {
+  padding: 1rem 3rem;
+  border-bottom: 1px solid white;
+}
+
+.component .cards-grid .card:nth-child(1) .cost,
+.component .cards-grid .card:nth-child(3) .cost {
+  padding: 1rem 3rem;
+  border-bottom: 1px solid hsl(236, 72%, 79%);
+}
+
+.component .cards-grid .card .link-btn {
+  background: linear-gradient(90deg, var(--linear-gradient-start) 0%, var(--linear-gradient-end) 100%);
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+.component .cards-grid .card .link-btn:hover {
+  background: transparent;
+  color: var(--linear-gradient-end);
+  outline: 1px solid var(--linear-gradient-end);
+}
+
+.component .cards-grid .card:nth-child(2) .link-btn {
+  background: white;
+  color: var(--linear-gradient-end);
+  outline: 1px solid white;
+}
+
+.component .cards-grid .card:nth-child(2) .link-btn:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
+
+@media (max-width: 768px) {
+  img {
+    position: fixed;
+  }
+
+  .component h1 {
+    padding-top: 3rem;
+  }
+
+  .component .toggle-container {
+    margin-bottom: 5rem;
+  }
+
+  .component .cards-grid .card.card:nth-child(2) {
+    padding: 1.5rem;
+  }
+
+  .component .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
